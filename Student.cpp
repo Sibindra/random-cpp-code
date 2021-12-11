@@ -24,18 +24,20 @@ class Student{
         void displayData(){
             cout<<"Name: "<<name<<endl
             <<"Amount of weekly exercise you accepted: "<<weeklyExercise<<endl
-            <<"Percise Grade: "<<garde<<endl
+            <<"Percise Grade: "<<grade<<endl
             <<"Rounded Grade: "<<(int)grade;
         }
 
         // function to sort by grade
         void gradeSort(){
-
+            // sorting code 
+            display();
         }
 
         // function to sort by name
         void nameSort(){
-
+            // sorting code
+            display();
         }
 };
 
@@ -66,16 +68,13 @@ int main(){
         break;
     case 2:
         // need to fill out terminating condition 
-        for(int i=0;studentArray[i]!=-1;i++){
+        for(int i=0;   ;i++){
             studentArray->displayData();
         }
     default:
+        cout<<"Invalid choice!";
         break;
     }
-   
-
-
-
 
     return 0;
 }
