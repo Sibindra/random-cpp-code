@@ -2,6 +2,8 @@
 #include <string.h>
 using namespace std;
 
+int i,j,temp=0,count;
+
 class Student{
     char name[25];
     int weeklyExercise;
@@ -21,35 +23,25 @@ class Student{
         }
 
         // function to display data
-        void displayData(){
-            cout<<"Name: "<<name<<endl
-            <<"Amount of weekly exercise you accepted: "<<weeklyExercise<<endl
-            <<"Percise Grade: "<<grade<<endl
-            <<"Rounded Grade: "<<(int)grade;
+        // not running
+        void displayData(Student s){
+            cout<<"Name: "<<s.name<<endl
+            <<"Amount of weekly exercise you accepted: "<<s.weeklyExercise<<endl
+            <<"Percise Grade: "<<s.grade<<endl
+            <<"Rounded Grade: "<<(int)s.grade<<endl;
         }
 
-        // function to sort by grade
-        void gradeSort(){
-            // sorting code 
-            display();
-        }
-
-        // function to sort by name
-        void nameSort(){
-            // sorting code
-            display();
-        }
 };
 
 int main(){
     Student studentArray[100];
     char prompt[2];
+    int choice;
 
     // menu for all available actions
     cout<<"Menu"<<endl
     <<"1.Input Student Data."<<endl
-    <<"2.Display Student Data."<<endl
-    <<"3.exit"<<endl;
+    <<"2.exit"<<endl;
 
     // choice for action choosing
     cout<<"Enter your choice: ";
@@ -58,21 +50,26 @@ int main(){
     switch (choice)
     {
     case 1:
+        // running the inputData() function until user enters anything other than y
         do{
         studentArray->inputData();
         cout<<"Press y to continue"<<endl;
         cin>>prompt;
 
+        // to find terminating condn counting how many data are inserted
+        count++;
+
         } while(strcmp(prompt,"y")==0);
 
-        break;
-    case 2:
-        // need to fill out terminating condition 
-        for(int i=0;   ;i++){
-            studentArray->displayData();
+        // displaing the data
+        for(int i=0;i<count;i++){
+            studentArray->displayData(studentArray[i]);
         }
+
+        break;
+
     default:
-        cout<<"Invalid choice!";
+        cout<<"Invalid choice!"<<endl;
         break;
     }
 
